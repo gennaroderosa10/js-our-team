@@ -123,7 +123,7 @@ form.addEventListener("submit", function (event) {
             <div class="card-body">
               <h5 class="card-title name">${newName}</h5>
               <p class="card-text role">${newRole}</p>
-              <p class="card-text e-mail"><small class="text-body-secondary">${newFile}</small></p>
+              <p class="card-text e-mail"><small class="text-body-secondary">${newEmail}</small></p>
             </div>
           </div>
         </div>
