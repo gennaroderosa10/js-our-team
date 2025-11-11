@@ -54,6 +54,7 @@ const teamMembers = [
 
 const cardContainer = document.querySelector(".team-card-container");
 
+let memberCards = "";
 for (let i = 0; i < teamMembers.length; i++) {
   const curMember = teamMembers[i];
   const { name, role, email, img } = curMember;
@@ -61,10 +62,10 @@ for (let i = 0; i < teamMembers.length; i++) {
   <div class="col-md-4">
       <div class="card mb-3">
                     <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="${img}" class="img-fluid rounded-start" alt="...">
+                        <div class="col">
+                            <img src="${img}" class="img-fluid img-thumbnail rounded-start" alt="...">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col">
                             <div class="card-body">
                                 <h5 class="card-title name">${name}</h5>
                                 <p class="card-text role">${role}</p>
@@ -77,6 +78,8 @@ for (let i = 0; i < teamMembers.length; i++) {
               </div>
                 `;
 
-  cardContainer.innerHTML += card;
+  memberCards += card;
 
 }
+
+cardContainer.innerHTML = memberCards;
