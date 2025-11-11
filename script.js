@@ -49,10 +49,15 @@ const teamMembers = [
     role: "Analyst",
     email: "danielaamet@team.com",
     img: "img/female3.png"
-  }
+  },
+
 ];
 
 const cardContainer = document.querySelector(".team-card-container");
+
+
+
+
 
 let memberCards = "";
 for (let i = 0; i < teamMembers.length; i++) {
@@ -83,3 +88,51 @@ for (let i = 0; i < teamMembers.length; i++) {
 }
 
 cardContainer.innerHTML = memberCards;
+
+const form = document.querySelector("form");
+const nameInput = document.getElementById("name");
+const roleInput = document.getElementById("role");
+const emailInput = document.getElementById("email");
+const fileInput = document.getElementById("file");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const newName = nameInput.value;
+  const newRole = roleInput.value;
+  const newEmail = emailInput.value;
+  const newFile = fileInput.value;
+
+  const newMember = {
+
+    name: newName,
+    role: newRole,
+    email: newEmail,
+    img: newFile,
+  }
+
+  teamMembers.push(newMember);
+
+  const newCard = `
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col">
+            <img src="${newFile}" class="img-fluid img-thumbnail rounded-start" alt="...">
+          </div>
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title name">${newName}</h5>
+              <p class="card-text role">${newRole}</p>
+              <p class="card-text e-mail"><small class="text-body-secondary">${newFile}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+
+
+  cardContainer.innerHTML += newCard;
+
+  form.reset();
+
+});
